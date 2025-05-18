@@ -53,7 +53,7 @@ public class Poker {
 
     //window
     int boardWidth = 900;
-    int boardHeight = 900;
+    int boardHeight = 800;
 
     int cardWidth = 110; //ratio should 1/1.4
     int cardHeight = 154;
@@ -115,7 +115,7 @@ public class Poker {
                 }
                 
 
-                // if (!stayButton.isEnabled()) {
+                // if (!restartButton.isEnabled()) {
                 //     dealerSum = reduceDealerAce();
                 //     playerSum = reducePlayerAce();
                 //     System.out.println("STAY: ");
@@ -159,6 +159,7 @@ public class Poker {
     JButton raiseButton = new JButton("Raise");
     JButton callButton = new JButton("Call");
     JButton foldButton = new JButton("Fold");
+    JButton restartButton = new JButton("Restart");
 
     JLabel playerCoinLabel = new JLabel();
     JLabel dealerCoinLabel = new JLabel();
@@ -191,10 +192,30 @@ public class Poker {
         buttonPanel.add(raiseButton);
         buttonPanel.add(callButton);
         buttonPanel.add(foldButton);
+        buttonPanel.add(restartButton);
         frame.add(buttonPanel, BorderLayout.SOUTH);
 
         // เริ่มต้นรอบใหม่ เปิดเฉพาะปุ่ม Raise
         enableActionButtons(true, false, false);
+
+         restartButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // รีเซ็ตเงินถ้าต้องการ
+                playerCoin = 1000;
+                dealerCoin = 1000;
+                startGame();
+            }
+        });
+
+        // Restart
+        restartButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // รีเซ็ตเงินถ้าต้องการ
+                playerCoin = 1000;
+                dealerCoin = 1000;
+                startGame();
+            }
+        });
 
         // Raise
         raiseButton.addActionListener(new ActionListener() {
@@ -211,6 +232,9 @@ public class Poker {
                 }
             }
         });
+
+       
+        
 
         // Call
         callButton.addActionListener(new ActionListener() {
@@ -231,6 +255,8 @@ public class Poker {
                 botAction(); // ให้ bot ตัดสินใจต่อ
             }
         });
+
+       
 
         // Fold
         foldButton.addActionListener(new ActionListener() {

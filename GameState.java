@@ -9,8 +9,8 @@ public class GameState {
     public int dealerSum = 0;
     public int playerAceCount = 0;
     public int dealerAceCount = 0;
-    public int playerCoin = 1000;
-    public int dealerCoin = 1000;
+    public int playerCoin = 10000;
+    public int dealerCoin = 10000;
     public int currentBet = 0;
     public boolean canRaise = true;
 }
