@@ -63,17 +63,20 @@ public class Poker {
     int revealedCommunity = 0; // จำนวนไพ่ที่เปิดแล้ว
 
     // coin system
-    int playerCoin = 1000;
-    int dealerCoin = 1000;
+    int playerCoin = 10000;
+    int dealerCoin = 10000;
     int currentBet = 0;
     boolean canRaise = true; // สามารถ raise ได้ก่อนเปิด flop
 
     // เพิ่มตัวแปรสำหรับตำแหน่ง Dealer/BB
     boolean isPlayerDealer = true; // true = player เป็น Dealer, false = dealer เป็น Dealer
-    int smallBlind = 10;
-    int bigBlind = 20;
+    int smallBlind = 50;
+    int bigBlind = 100;
 
-    JFrame frame = new JFrame("Black Jack");
+    // reveal dealer hand
+    boolean revealDealerHand = false;
+
+    JFrame frame = new JFrame("Poker Game");
     JPanel gamePanel = new JPanel() {
         @Override
         public void paintComponent(Graphics g) {
@@ -115,40 +118,11 @@ public class Poker {
                 }
                 
 
-                // if (!restartButton.isEnabled()) {
-                //     dealerSum = reduceDealerAce();
-                //     playerSum = reducePlayerAce();
-                //     System.out.println("STAY: ");
-                //     System.out.println(dealerSum);
-                //     System.out.println(playerSum);
-
-                //     String message = "";
-                //     if (playerSum > 21) {
-                //         message = "You Lose!";
-                //     }
-                //     else if (dealerSum > 21) {
-                //         message = "You Win!";
-                //     }
-                //     //both you and dealer <= 21
-                //     else if (playerSum == dealerSum) {
-                //         message = "Tie!";
-                //     }
-                //     else if (playerSum > dealerSum) {
-                //         message = "You Win!";
-                //     }
-                //     else if (playerSum < dealerSum) {
-                //         message = "You Lose!";
-                //     }
-
-                //     g.setFont(new Font("Arial", Font.PLAIN, 30));
-                //     g.setColor(Color.white);
-                //     g.drawString(message, getWidth()/2 - 60, 250);
-                // }
 
                 g.setColor(Color.WHITE);
-                g.setFont(new Font("Arial", Font.BOLD, 20));
+                g.setFont(new Font("Arial", Font.BOLD, 10));
                 g.drawString("Player Coin: " + playerCoin, 30, getHeight() - 50);
-                g.drawString("Dealer Coin: " + dealerCoin, 30, 50);
+                // g.drawString("Dealer Coin: " + dealerCoin, 30, 50);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -179,7 +153,7 @@ public class Poker {
 
         // Coin labels
         playerCoinLabel.setText("Player Coin: " + playerCoin);
-        dealerCoinLabel.setText("Dealer Coin: " + dealerCoin);
+        dealerCoinLabel.setText("Bot Coin: " + dealerCoin);
         playerCoinLabel.setForeground(Color.WHITE);
         dealerCoinLabel.setForeground(Color.WHITE);
         gamePanel.setLayout(null);
@@ -201,8 +175,8 @@ public class Poker {
          restartButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // รีเซ็ตเงินถ้าต้องการ
-                playerCoin = 1000;
-                dealerCoin = 1000;
+                playerCoin = 10000;
+                dealerCoin = 10000;
                 startGame();
             }
         });
@@ -211,8 +185,8 @@ public class Poker {
         restartButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // รีเซ็ตเงินถ้าต้องการ
-                playerCoin = 1000;
-                dealerCoin = 1000;
+                playerCoin = 10000;
+                dealerCoin = 10000;
                 startGame();
             }
         });
