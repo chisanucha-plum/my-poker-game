@@ -1,12 +1,28 @@
-# [Poker (Java)]
+# Poker (Java)
 
-How to code a Poker game in Java for beginners! Learn how to create a game of Poker in Java using the awt and swing graphics library.
+สร้างเกม Poker ด้วยภาษา Java สำหรับผู้เริ่มต้น! ตัวอย่างนี้ใช้ไลบรารี awt และ swing เพื่อสร้างกราฟิกและอินเทอร์เฟซ
 
-In this tutorial, you will learn how to make the card game, poker! You will learn how to create a deck, shuffle it, and deal cards to the dealer and the player(s). You will also learn how to handle betting rounds, player actions (such as call, raise, fold), and compare the results to see who wins the round. After learning how to set up the game logic, you will learn how to create a graphical user interface (GUI) to display the player cards and update when you interact with the game.
+## สิ่งที่คุณจะได้เรียนรู้
+- สร้างสำรับไพ่ (Deck) และสับไพ่
+- แจกไพ่ให้ผู้เล่นและดีลเลอร์ (Bot)
+- จัดการรอบการเดิมพัน (Betting round)
+- การกระทำของผู้เล่น เช่น Call, Raise, Fold
+- เปรียบเทียบผลลัพธ์เพื่อหาผู้ชนะในแต่ละรอบ
+- สร้าง GUI แสดงไพ่และอัปเดตสถานะเกมแบบเรียลไทม์
+- เมื่อเปิดไพ่ครบ 5 ใบ จะมีการเปิดไพ่ของ Bot อัตโนมัติ
 
-[How to setup Java with Visual Studio Code]
+## ตัวอย่างหน้าจอเกม
 
-![poker-java-demo]
+![poker-java-demo](cards/review_game.png)
 
-## Homework:
-You can continue working on this project if you like. One feature you can add is to create an input to let players bet money (Of course this is hypothetical money!). To do this, you will need a JTextField. Then you can use the getText() method to get the input, check if it's a number, and use that as the amount of money the player is betting. Another useful feature would be to create another JButton for "next game" and enable it only when the game is settled. By clicking this button, your program should call startGame(), which will build and shuffle the deck, and deal new cards to the players.
+## วิธีเริ่มต้น
+1. ติดตั้ง Java และ Visual Studio Code
+2. เปิดโฟลเดอร์นี้ใน VS Code
+3. รันไฟล์ `App.java` เพื่อเริ่มเกม
+
+## ฟีเจอร์เพิ่มเติมที่แนะนำ
+- เพิ่มช่องให้ผู้เล่นกรอกจำนวนเงินที่ต้องการเดิมพัน (ใช้ JTextField)
+- เพิ่มปุ่ม "Next Game" เพื่อเริ่มเกมใหม่หลังจบรอบ
+- ปรับปรุง AI ของ Bot ให้ฉลาดขึ้น
+
+[How to setup Java with Visual Studio Code](https://youtu.be/BB0gZFpukJU)
